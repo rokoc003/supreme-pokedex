@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint src/**"
   },
   "repository": {
     "type": "git",
@@ -12,9 +12,15 @@
   },
   "keywords": [],
   "author": "Roxane Kocem",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/rokoc003/supreme-pokedex/issues"
   },
-  "homepage": "https://github.com/rokoc003/supreme-pokedex#readme"
+  "homepage": "https://github.com/rokoc003/supreme-pokedex#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
+  }
 }
