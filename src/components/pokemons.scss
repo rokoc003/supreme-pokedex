@@ -1,3 +1,5 @@
+@use "../theme";
+
 .pokemons {
   margin-top: 10px;
   display: flex;
@@ -10,4 +12,7 @@
   text-transform: uppercase;
   text-align: center;
   margin: 4px;
+  padding: 4px;
+  border-radius: 0.5rem;
+  border: 1px solid theme.$background-color-dark;
 }

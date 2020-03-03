@@ -6,11 +6,12 @@
 }
 
 .logo {
-  height: 30px;
+  height: 40px;
+  width: 40px;
 }
 
 .main {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
