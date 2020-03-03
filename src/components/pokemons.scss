@@ -1,0 +1,13 @@
+.pokemons {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pokemon {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 4px;
+}
