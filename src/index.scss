@@ -1,5 +1,20 @@
-$body-color: blue;
+@use "./theme";
+@import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap');
+
+*,
+*::after,
+*:before {
+  box-sizing: border-box;
+}
 
 body {
-  color: $body-color;
+  margin: 0;
+  background-image: linear-gradient(
+    to bottom right,
+    theme.$background-color-light,
+    theme.$background-color-dark
+  );
+  height: 100vh;
+  font-size: 18px;
+  font-family: 'Annie Use Your Telescope', Regular;
 }
