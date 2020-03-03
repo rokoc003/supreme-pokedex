@@ -1,4 +1,7 @@
 import './index.scss';
-import { pokemon } from './components/pokemon';
+import { app } from './app';
 
-document.body.appendChild(pokemon());
+const elements = app();
+elements.forEach(element => {
+  document.body.appendChild(element);
+});
