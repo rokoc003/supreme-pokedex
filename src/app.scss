@@ -1,8 +1,16 @@
 .header {
   height: 50px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo {
+  height: 30px;
 }
 
 .main {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
