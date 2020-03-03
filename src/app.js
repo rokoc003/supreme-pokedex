@@ -12,5 +12,9 @@ export function app() {
   header.appendChild(titleElement);
   main.appendChild(searchElement);
 
+  searchElement.addEventListener('input', event => {
+    console.log(event.target.value);
+  });
+
   return [header, main];
 }
