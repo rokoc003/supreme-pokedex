@@ -3,6 +3,7 @@ import { createElement } from './lib/dom';
 import { title } from './components/title';
 import { search } from './components/search';
 import { pokemons } from './components/pokemons';
+import Logo from './images/pokemon.png';
 
 const allPokemons = ['Pikachu', 'Pichu', 'Glumanda', 'Goldini'];
 
@@ -11,7 +12,11 @@ export function app() {
   const main = createElement('main', { className: 'main' });
   const titleElement = title('Supreme Pokedex');
   const searchElement = search();
-
+  const logo = createElement('img', {
+    className: 'logo',
+    src: Logo
+  });
+  header.appendChild(logo);
   header.appendChild(titleElement);
   main.appendChild(searchElement);
 
