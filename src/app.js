@@ -5,32 +5,51 @@ import { createSearchInput } from './components/search';
 import { createPokemons } from './components/pokemons';
 import Logo from './images/pokemon.png';
 
-const allPokemons = ['Pikachu', 'Pichu', 'Glumanda', 'Goldini'];
+const allPokemons = [
+  'Pikachu',
+  'Pichu',
+  'Glumanda',
+  'Bisasam',
+  'Schiggy',
+  'Goldini',
+  'Raupy'
+];
+
+function filterPokemons(searchValue) {
+  const upperCaseSearchValue = searchValue.toUpperCase();
+
+  const filteredPokemons = allPokemons.filter(pokemon => {
+    return pokemon.toUpperCase().startsWith(upperCaseSearchValue);
+  });
+  return filteredPokemons;
+}
 
 export function app() {
   const header = createElement('header', { className: 'header' });
   const main = createElement('main', { className: 'main' });
   const title = createTitle('Supreme Pokedex');
-  const searchInput = createSearchInput();
+  const searchInput = createSearchInput(sessionStorage.getItem('searchValue'));
   const logo = createElement('img', {
     className: 'logo',
     src: Logo
   });
-  let pokemons = createPokemons(allPokemons);
+  let pokemons = null;
+  function setSearchResults() {
+    const filteredPokemons = filterPokemons(searchInput.value);
+    pokemons = createPokemons(filteredPokemons);
+    appendContent(main, pokemons);
+  }
+  setSearchResults();
 
   appendContent(header, [logo, title]);
   appendContent(main, [searchInput, pokemons]);
 
   searchInput.addEventListener('input', event => {
     main.removeChild(pokemons);
+    setSearchResults();
 
-    const searchValue = event.target.value.toUpperCase();
-    const filteredPokemons = allPokemons.filter(pokemon => {
-      return pokemon.toUpperCase().startsWith(searchValue);
-    });
-    pokemons = createPokemons(filteredPokemons);
-    appendContent(main, pokemons);
+    const searchValue = event.target.value;
+    sessionStorage.setItem('searchValue', searchValue);
   });
-
   return [header, main];
 }
