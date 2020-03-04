@@ -24,9 +24,9 @@ export function app() {
   searchInput.addEventListener('input', event => {
     main.removeChild(pokemons);
 
-    const searchValue = event.target.value;
+    const searchValue = event.target.value.toUpperCase();
     const filteredPokemons = allPokemons.filter(pokemon => {
-      return pokemon.startsWith(searchValue);
+      return pokemon.toUpperCase().startsWith(searchValue);
     });
     pokemons = createPokemons(filteredPokemons);
     appendContent(main, pokemons);
