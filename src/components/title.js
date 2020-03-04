@@ -1,7 +1,7 @@
 import './title.scss';
 import { createElement } from '../lib/dom';
 
-export function title(heading) {
+export function createTitle(heading) {
   const titleAttributes = {
     innerText: heading,
     className: 'title'
