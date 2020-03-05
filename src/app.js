@@ -5,16 +5,7 @@ import { createSearchInput } from './components/search';
 import { createPokemons } from './components/pokemons';
 import Logo from './images/pokemon.png';
 import { createFavList } from './components/favorites';
-
-const allPokemons = [
-  'Pikachu',
-  'Pichu',
-  'Glumanda',
-  'Bisasam',
-  'Schiggy',
-  'Goldini',
-  'Raupy'
-];
+import { filterPokemons } from './lib/pokemons';
 
 function refreshLocalStorage(item) {
   let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -29,15 +20,6 @@ function refreshLocalStorage(item) {
   }
   const favoritesJSON = JSON.stringify(favorites);
   localStorage.setItem('favorites', favoritesJSON);
-}
-
-function filterPokemons(searchValue) {
-  const upperCaseSearchValue = searchValue.toUpperCase();
-
-  const filteredPokemons = allPokemons.filter(pokemon => {
-    return pokemon.toUpperCase().startsWith(upperCaseSearchValue);
-  });
-  return filteredPokemons;
 }
 
 export function app() {
@@ -65,8 +47,8 @@ export function app() {
   }
 
   let pokemons = null;
-  function setSearchResults() {
-    const filteredPokemons = filterPokemons(searchInput.value);
+  async function setSearchResults() {
+    const filteredPokemons = await filterPokemons(searchInput.value);
     pokemons = createPokemons({
       items: filteredPokemons,
       onSearchResultClick: handleSearchResultClick
@@ -76,7 +58,7 @@ export function app() {
   setSearchResults();
 
   appendContent(header, [logo, title]);
-  appendContent(main, [searchInput, pokemons]);
+  appendContent(main, [searchInput]);
 
   searchInput.addEventListener('input', event => {
     main.removeChild(pokemons);
