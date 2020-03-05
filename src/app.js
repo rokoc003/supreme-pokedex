@@ -4,6 +4,7 @@ import { createTitle } from './components/title';
 import { createSearchInput } from './components/search';
 import { createPokemons } from './components/pokemons';
 import Logo from './images/pokemon.png';
+import { createFavList } from './components/favorites';
 
 const allPokemons = [
   'Pikachu',
@@ -33,6 +34,10 @@ export function app() {
     className: 'logo',
     src: Logo
   });
+  const favorites = createFavList({
+    items: ['Glumanda', 'Pichu']
+  });
+
   let pokemons = null;
   function setSearchResults() {
     const filteredPokemons = filterPokemons(searchInput.value);
@@ -51,5 +56,5 @@ export function app() {
     const searchValue = event.target.value;
     sessionStorage.setItem('searchValue', searchValue);
   });
-  return [header, main];
+  return [header, main, favorites];
 }

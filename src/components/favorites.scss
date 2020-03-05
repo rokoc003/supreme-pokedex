@@ -1,0 +1,7 @@
+@use "../theme.scss";
+
+.favorites {
+  height: 100px;
+  margin: 10px;
+  border: 1px solid theme.$background-color-light;
+}
