@@ -16,6 +16,7 @@ export function createPokemons(props) {
       className: 'pokemonImage',
       //pokeNumber: index++,
       src: `https://pokeres.bastionbot.org/images/pokemon/2.png`
+      //src: `https://pokeres.bastionbot.org/images/pokemon/${pokeNumber}.png`
     });
 
     element.addEventListener('click', () => {
