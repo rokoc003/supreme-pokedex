@@ -1,5 +1,5 @@
 import './pokemons.scss';
-import { createElement, appendContent } from '../lib/dom';
+import { createElement } from '../lib/dom';
 
 export function createPokemons(props) {
   const container = createElement('div', {
@@ -11,10 +11,18 @@ export function createPokemons(props) {
       innerText: item,
       className: 'pokemon'
     });
+    //let index = 0;
+    const pokemonImage = createElement('img', {
+      className: 'pokemonImage',
+      //pokeNumber: index++,
+      src: `https://pokeres.bastionbot.org/images/pokemon/2.png`
+    });
+
     element.addEventListener('click', () => {
       props.onSearchResultClick(item);
     });
-    appendContent(container, element);
+    container.appendChild(element);
+    element.appendChild(pokemonImage);
   });
   return container;
 }
