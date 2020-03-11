@@ -13,7 +13,8 @@ export function createPokemons(props) {
     });
     const pokemonImage = createElement('img', {
       className: 'pokemonImage',
-      src: `https://pokeres.bastionbot.org/images/pokemon/${pokemonId + 1}.png`
+      src: `https://pokeres.bastionbot.org/images/pokemon/${pokemonId + 1}.png`,
+      alt: `image of pokemon #${pokemonId + 1}`
     });
     element.addEventListener('click', () => {
       props.onSearchResultClick(item);
