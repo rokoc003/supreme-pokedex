@@ -1,5 +1,5 @@
 async function getPokemons() {
-  const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=806');
+  const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=400');
   const results = await response.json();
   const pokemons = results.results;
   const pokemonNames = pokemons.map(pokemon => {

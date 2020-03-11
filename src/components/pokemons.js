@@ -6,19 +6,15 @@ export function createPokemons(props) {
     className: 'pokemons'
   });
 
-  props.items.forEach(item => {
+  props.items.forEach((item, pokemonId) => {
     const element = createElement('div', {
       innerText: item,
       className: 'pokemon'
     });
-    //let index = 0;
     const pokemonImage = createElement('img', {
       className: 'pokemonImage',
-      //pokeNumber: index++,
-      src: `https://pokeres.bastionbot.org/images/pokemon/2.png`
-      //src: `https://pokeres.bastionbot.org/images/pokemon/${pokeNumber}.png`
+      src: `https://pokeres.bastionbot.org/images/pokemon/${pokemonId + 1}.png`
     });
-
     element.addEventListener('click', () => {
       props.onSearchResultClick(item);
     });
