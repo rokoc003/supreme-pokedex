@@ -1,20 +1,26 @@
 import './pokemons.scss';
-import { createElement, appendContent } from '../lib/dom';
+import { createElement } from '../lib/dom';
 
 export function createPokemons(props) {
   const container = createElement('div', {
     className: 'pokemons'
   });
 
-  props.items.forEach(item => {
+  props.items.forEach((item, pokemonId) => {
     const element = createElement('div', {
       innerText: item,
       className: 'pokemon'
     });
+    const pokemonImage = createElement('img', {
+      className: 'pokemonImage',
+      src: `https://pokeres.bastionbot.org/images/pokemon/${pokemonId + 1}.png`,
+      alt: `image of pokemon #${pokemonId + 1}`
+    });
     element.addEventListener('click', () => {
       props.onSearchResultClick(item);
     });
-    appendContent(container, element);
+    container.appendChild(element);
+    element.appendChild(pokemonImage);
   });
   return container;
 }

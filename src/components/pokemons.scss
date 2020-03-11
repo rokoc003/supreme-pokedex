@@ -8,11 +8,19 @@
 }
 
 .pokemon {
-  font-size: 0.7rem;
+  color: theme.$text-color-dark;
+  font-size: 1rem;
   text-transform: uppercase;
   text-align: center;
   margin: 4px;
   padding: 4px;
   border-radius: 0.5rem;
   border: 1px solid theme.$background-color-dark;
+}
+
+img {
+  display: flex;
+  height: 13rem;
+  width: 13rem;
+  transition: ease-in 3s;
 }
